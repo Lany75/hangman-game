@@ -1,4 +1,4 @@
-[
+const frenchWordList = [
   {
     "id": 1,
     "word": "abondance"
@@ -107,4 +107,6 @@
     "id": 27,
     "word": "zoologie"
   }
-]
+];
+
+export default frenchWordList;
