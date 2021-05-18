@@ -1,22 +1,15 @@
-import potence from '../../img/potence.jpg';
-import tete from '../../img/tete.jpg';
-import corps from '../../img/corps.jpg';
-import brasDroit from '../../img/brasDroit.jpg';
-import brasGauche from '../../img/brasGauche.jpg';
-import jambeDroite from '../../img/jambeDroite.jpg';
-import jambeGauche from '../../img/jambeGauche.jpg';
+import potence0 from '../../img/potence0.jpg';
+import potence1 from '../../img/potence1.jpg';
+import potence2 from '../../img/potence2.jpg';
+import potence3 from '../../img/potence3.jpg';
+import potence4 from '../../img/potence4.jpg';
+import potence5 from '../../img/potence5.jpg';
+import potence6 from '../../img/potence6.jpg';
+
 import './Gallows.css';
 
 const gallows = () => {
-  return <div className='gallows'>
-    <img src={potence} alt='la potence' />
-    <img src={tete} alt='la tête de Roger' />
-    <img src={corps} alt='le corps de Roger' />
-    <img src={brasDroit} alt='le bras droit de Roger' />
-    <img src={brasGauche} alt='le bras gauche de Roger' />
-    <img src={jambeDroite} alt='la jambe droite de Roger' />
-    <img src={jambeGauche} alt='la jambe gauche de Roger' />
-  </div>
+  return <img className='gallows' src={potence0} alt='la potence' />
 }
 
 export default gallows
