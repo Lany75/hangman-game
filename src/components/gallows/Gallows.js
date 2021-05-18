@@ -5,9 +5,10 @@ import brasDroit from '../../img/brasDroit.jpg';
 import brasGauche from '../../img/brasGauche.jpg';
 import jambeDroite from '../../img/jambeDroite.jpg';
 import jambeGauche from '../../img/jambeGauche.jpg';
+import './Gallows.css';
 
 const gallows = () => {
-  return <div>
+  return <div className='gallows'>
     <img src={potence} alt='la potence' />
     <img src={tete} alt='la tête de Roger' />
     <img src={corps} alt='le corps de Roger' />
