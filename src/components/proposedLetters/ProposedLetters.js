@@ -8,6 +8,7 @@ import potence3 from '../../img/potence3.jpg';
 import potence4 from '../../img/potence4.jpg';
 import potence5 from '../../img/potence5.jpg';
 import potence6 from '../../img/potence6.jpg';
+import gagne from '../../img/gagne.jpg';
 
 import './ProposedLetters.css';
 
@@ -44,11 +45,24 @@ const ProposedLetters = () => {
         default:
       }
       setErrorCounter(errorCounter + 1);
-
     } else {
       const divLetters = document.getElementsByClassName('word-letter');
       for (let i = 0; i < word.length; i++) {
         if (word[i] === letter) divLetters[i].innerHTML = letter;
+      }
+      const buttonLetter = document.getElementById(letter);
+      buttonLetter.disabled = true;
+
+      let isWon = true;
+      for (let i = 0; i < divLetters.length; i++) {
+        if (divLetters[i].innerHTML === '_') isWon = false;
+      }
+      if (isWon) {
+        setImage(gagne);
+        const buttonLetter = document.getElementsByClassName('letter-button');
+        for (let i = 0; i < buttonLetter.length; i++) {
+          buttonLetter[i].disabled = true;
+        }
       }
     }
   }
@@ -56,7 +70,7 @@ const ProposedLetters = () => {
   return (
     <div className='proposed-letters'>
       {ALPHABET.map((letter, index) => {
-        return <button className='letter-button' key={index} onClick={() => checkLetter(letter)}>{letter}</button>
+        return <button className='letter-button' id={letter} key={index} onClick={() => checkLetter(letter)}>{letter}</button>
       })}
     </div>
   )
