@@ -1,14 +1,22 @@
-import React from 'react';
-import wordList from '../../datas/word-french';
-import getRandomInteger from '../../utils/getRandomInteger';
-import UnderscoreWord from '../underscoreWord/UnderscoreWord';
+import { useContext } from 'react';
+import { WordContext } from '../../context/wordContext';
+import './SelectedWord.css';
 
 const SelectedWord = () => {
-  const randomWord = wordList[getRandomInteger(wordList.length)];
+  const { word } = useContext(WordContext);
+  const letterRegex = /[A-Z]/
 
   return (
-    <div>
-      <UnderscoreWord word={randomWord.word} />
+    <div className='selected-word'>
+      {word && word.map((l, index) => {
+        if (letterRegex.test(l)) {
+          return <div className='word-letter' key={index}>_</div>
+        }
+        else {
+          if (l === ' ') return <div className='word-letter' key={index}>&nbsp;</div>
+          else return <div className='word-letter' key={index}>{l}</div>
+        }
+      })}
     </div>
   )
 }
