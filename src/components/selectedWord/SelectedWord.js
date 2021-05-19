@@ -1,15 +1,14 @@
-import wordList from '../../datas/word-french';
-import getRandomInteger from '../../utils/getRandomInteger';
+import { useContext } from 'react';
+import { WordContext } from '../../context/wordContext';
 import './SelectedWord.css';
 
 const SelectedWord = () => {
-  const randomWord = wordList[getRandomInteger(wordList.length)].word;
-  const letters = randomWord.split('');
-  const letterRegex = /[a-zàáâãäåçèéêëìíîïðòóôõöùúûüýÿ]/
+  const { word } = useContext(WordContext);
+  const letterRegex = /[A-Z]/
 
   return (
     <div className='selected-word'>
-      {letters.map((l, index) => {
+      {word && word.map((l, index) => {
         if (letterRegex.test(l)) {
           return <div className='word-letter' key={index}>_</div>
         }
