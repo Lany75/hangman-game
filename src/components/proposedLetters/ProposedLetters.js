@@ -19,6 +19,9 @@ const ProposedLetters = () => {
 
   const checkLetter = letter => {
     if (word.indexOf(letter) === -1) {
+      const buttonLetter = document.getElementById(letter);
+      buttonLetter.disabled = true;
+
       switch (errorCounter) {
         case 0:
           setImage(potence1);
