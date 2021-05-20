@@ -7,6 +7,7 @@ export const WordContext = createContext();
 
 function WordProvider({ children }) {
   const [word, setWord] = useState();
+  const [underscoredWord, setUnderscoredWord] = useState();
 
   const getRandomWord = () => {
     const randomWord = wordList[getRandomInteger(wordList.length)].word.toUpperCase();
@@ -39,6 +40,16 @@ function WordProvider({ children }) {
       }
     })
     setWord(lettersWord);
+    getUnderscoredWord(lettersWord);
+  }
+
+  const getUnderscoredWord = (word) => {
+    const letterRegex = /[A-Z]/;
+    let underW = word.map(l => {
+      if (letterRegex.test(l)) return '_';
+      else return l;
+    })
+    setUnderscoredWord(underW);
   }
 
   useEffect(() => {
@@ -46,7 +57,7 @@ function WordProvider({ children }) {
   }, []);
 
   return (
-    <WordContext.Provider value={{ word }}>
+    <WordContext.Provider value={{ word, getRandomWord, underscoredWord, setUnderscoredWord }}>
       {children}
     </WordContext.Provider>
   )

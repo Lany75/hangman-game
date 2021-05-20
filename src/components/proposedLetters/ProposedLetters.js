@@ -13,7 +13,7 @@ import gagne from '../../img/gagne.jpg';
 import './ProposedLetters.css';
 
 const ProposedLetters = () => {
-  const { word } = useContext(WordContext);
+  const { word, underscoredWord, setUnderscoredWord } = useContext(WordContext);
   const { errorCounter, setErrorCounter, setImage } = useContext(GallowsContext);
   const ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
@@ -41,28 +41,37 @@ const ProposedLetters = () => {
           for (let i = 0; i < buttonLetter.length; i++) {
             buttonLetter[i].disabled = true;
           }
+          const buttonReplay = document.getElementById('replay-button');
+          buttonReplay.style.display = 'block';
           break;
         default:
       }
       setErrorCounter(errorCounter + 1);
     } else {
-      const divLetters = document.getElementsByClassName('word-letter');
-      for (let i = 0; i < word.length; i++) {
-        if (word[i] === letter) divLetters[i].innerHTML = letter;
-      }
       const buttonLetter = document.getElementById(letter);
       buttonLetter.disabled = true;
 
-      let isWon = true;
-      for (let i = 0; i < divLetters.length; i++) {
-        if (divLetters[i].innerHTML === '_') isWon = false;
+      let underW = [];
+      for (let i = 0; i < word.length; i++) {
+        if (underscoredWord[i] !== '_') underW.push(underscoredWord[i]);
+        else {
+          if (word[i] === letter) underW.push(letter);
+          else underW.push('_');
+        }
+
       }
-      if (isWon) {
+      setUnderscoredWord(underW);
+
+      if (underW.every(currentV => {
+        return currentV !== '_';
+      })) {
         setImage(gagne);
         const buttonLetter = document.getElementsByClassName('letter-button');
         for (let i = 0; i < buttonLetter.length; i++) {
           buttonLetter[i].disabled = true;
         }
+        const buttonReplay = document.getElementById('replay-button');
+        buttonReplay.style.display = 'block';
       }
     }
   }
