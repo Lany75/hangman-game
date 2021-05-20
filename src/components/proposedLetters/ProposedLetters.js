@@ -17,10 +17,32 @@ const ProposedLetters = () => {
   const { errorCounter, setErrorCounter, setImage } = useContext(GallowsContext);
   const ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
+  const disableAllLetterButton = () => {
+    const letterButton = document.getElementsByClassName('letter-button');
+    for (let i = 0; i < letterButton.length; i++) {
+      letterButton[i].disabled = true;
+    }
+  }
+
+  const disableOneLetterButton = (letter) => {
+    const letterButton = document.getElementById(letter);
+    letterButton.disabled = true;
+  }
+
+  const showReplayButton = () => {
+    const replayButton = document.getElementById('replay-button');
+    replayButton.style.display = 'block';
+  }
+
+  const endGame = (image) => {
+    setImage(image);
+    disableAllLetterButton();
+    showReplayButton();
+  }
+
   const checkLetter = letter => {
     if (word.indexOf(letter) === -1) {
-      const buttonLetter = document.getElementById(letter);
-      buttonLetter.disabled = true;
+      disableOneLetterButton(letter);
 
       switch (errorCounter) {
         case 0:
@@ -39,20 +61,13 @@ const ProposedLetters = () => {
           setImage(potence5);
           break;
         case 5:
-          setImage(potence6);
-          const buttonLetter = document.getElementsByClassName('letter-button');
-          for (let i = 0; i < buttonLetter.length; i++) {
-            buttonLetter[i].disabled = true;
-          }
-          const buttonReplay = document.getElementById('replay-button');
-          buttonReplay.style.display = 'block';
+          endGame(potence6);
           break;
         default:
       }
       setErrorCounter(errorCounter + 1);
     } else {
-      const buttonLetter = document.getElementById(letter);
-      buttonLetter.disabled = true;
+      disableOneLetterButton(letter);
 
       let underW = [];
       for (let i = 0; i < word.length; i++) {
@@ -68,13 +83,7 @@ const ProposedLetters = () => {
       if (underW.every(currentV => {
         return currentV !== '_';
       })) {
-        setImage(gagne);
-        const buttonLetter = document.getElementsByClassName('letter-button');
-        for (let i = 0; i < buttonLetter.length; i++) {
-          buttonLetter[i].disabled = true;
-        }
-        const buttonReplay = document.getElementById('replay-button');
-        buttonReplay.style.display = 'block';
+        endGame(gagne);
       }
     }
   }
