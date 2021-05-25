@@ -1,6 +1,4 @@
 .selected-word {
-  grid-column: 1/2;
-  align-self: center;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

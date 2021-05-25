@@ -4,6 +4,13 @@
   grid-template-rows: 1fr 1fr 1fr;
 }
 
+.word-message {
+  grid-column: 1/2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 .letters-replay {
   grid-column: 1/3;
   display: flex;
