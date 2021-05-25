@@ -1,7 +1,7 @@
 import './App.css';
-import DisplayWord from './components/displayWord/DisplayWord';
 import Gallows from './components/gallows/Gallows';
 import Goal from './components/goal/Goal';
+import Messages from './components/messages/Messages';
 import ProposedLetters from './components/proposedLetters/ProposedLetters';
 import ReplayButton from './components/replayButton/ReplayButton';
 import SelectedWord from './components/selectedWord/SelectedWord';
@@ -20,7 +20,7 @@ function App() {
             <Goal />
             <div className='word-message'>
               <SelectedWord />
-              <DisplayWord />
+              <Messages />
             </div>
             <Gallows />
             <div className='letters-replay'>

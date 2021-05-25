@@ -8,12 +8,13 @@ import './ReplayButton.css';
 const ReplayButton = () => {
   const { getRandomWord } = useContext(WordContext);
   const { setErrorCounter, setImage } = useContext(GallowsContext);
-  const { setIsLost } = useContext(MessagesContext);
+  const { setIsWon, setIsLost } = useContext(MessagesContext);
 
   const replay = () => {
     setImage(potence0);
     setErrorCounter(0);
     setIsLost(false);
+    setIsWon(false);
 
     const buttonLetter = document.getElementsByClassName('letter-button');
     for (let i = 0; i < buttonLetter.length; i++) {
