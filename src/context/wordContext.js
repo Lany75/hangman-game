@@ -10,7 +10,10 @@ function WordProvider({ children }) {
   const [underscoredWord, setUnderscoredWord] = useState();
 
   const getRandomWord = () => {
-    const randomWord = wordList[getRandomInteger(wordList.length)].word.toUpperCase();
+    let randomWord = wordList[getRandomInteger(wordList.length)].word.toUpperCase();
+
+    while (randomWord === word?.join('')) randomWord = wordList[getRandomInteger(wordList.length)].word.toUpperCase();
+
     let lettersWord = randomWord.split('');
     lettersWord.forEach((letter, index) => {
       switch (true) {
