@@ -1,0 +1,6 @@
+.score {
+  grid-column: 2/3;
+  justify-self: center;
+  align-self: center;
+  font-size: 25px;
+}
