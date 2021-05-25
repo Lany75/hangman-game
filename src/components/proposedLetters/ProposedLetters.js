@@ -16,7 +16,7 @@ import { MessagesContext } from '../../context/messagesContext';
 const ProposedLetters = () => {
   const { word, underscoredWord, setUnderscoredWord } = useContext(WordContext);
   const { errorCounter, setErrorCounter, setImage } = useContext(GallowsContext);
-  const { setIsLost } = useContext(MessagesContext);
+  const { setIsWon, setIsLost } = useContext(MessagesContext);
   const ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
   const disableAllLetterButton = () => {
@@ -41,6 +41,7 @@ const ProposedLetters = () => {
     disableAllLetterButton();
     showReplayButton();
     if (image === potence6) setIsLost(true);
+    if (image === gagne) setIsWon(true);
   }
 
   const checkLetter = letter => {
