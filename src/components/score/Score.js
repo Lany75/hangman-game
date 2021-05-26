@@ -8,14 +8,16 @@ const Score = () => {
 
   return (
     <table className='score'>
-      <tr>
-        <td>Mots trouvés :</td>
-        <td>{nbFoundWord}</td>
-      </tr>
-      <tr>
-        <td>Mots non trouvés :</td>
-        <td>{nbLostWord}</td>
-      </tr>
+      <tbody>
+        <tr>
+          <td>Mots trouvés :</td>
+          <td>{nbFoundWord}</td>
+        </tr>
+        <tr>
+          <td>Mots non trouvés :</td>
+          <td>{nbLostWord}</td>
+        </tr>
+      </tbody>
     </table>
   )
 }

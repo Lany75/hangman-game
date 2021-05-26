@@ -5,10 +5,14 @@ import { WordContext } from '../../context/wordContext';
 import potence0 from '../../img/potence0.jpg';
 import './ReplayButton.css';
 
-const ReplayButton = () => {
+const ReplayButton = (props) => {
   const { getRandomWord } = useContext(WordContext);
   const { setErrorCounter, setImage } = useContext(GallowsContext);
   const { setIsWon, setIsLost } = useContext(MessagesContext);
+
+  const activeReplayButton = value => {
+    props.activeReplayButton(value);
+  }
 
   const replay = () => {
     setImage(potence0);
@@ -23,11 +27,12 @@ const ReplayButton = () => {
 
     getRandomWord();
 
-    const buttonReplay = document.getElementById('replay-button');
-    buttonReplay.style.display = 'none';
+    activeReplayButton(false);
   }
 
-  return <button id='replay-button' onClick={replay}>REJOUER</button>
+  return (
+    props.isActiveReplayButton ? <button id='replay-button' onClick={replay}>REJOUER</button> : <button id='replay-button' disabled>REJOUER</button>
+  )
 }
 
 export default ReplayButton;
