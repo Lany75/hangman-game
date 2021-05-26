@@ -1,7 +1,10 @@
 .selected-word {
+  grid-column: 1/3;
+  grid-row: 2/3;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-self: center;
 }
 
 .word-letter {

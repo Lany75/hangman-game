@@ -27,15 +27,11 @@ function App() {
             <div className="App">
               <Goal />
               <Score />
-              <div className='word-message'>
-                <SelectedWord />
-                <Messages />
-              </div>
+              <SelectedWord />
+              <Messages />
               <Gallows />
-              <div className='letters-replay'>
-                <ProposedLetters activeReplayButton={activeReplayButton} />
-                <ReplayButton isActiveReplayButton={isActiveReplayButton} activeReplayButton={activeReplayButton} />
-              </div>
+              <ProposedLetters activeReplayButton={activeReplayButton} />
+              <ReplayButton isActiveReplayButton={isActiveReplayButton} activeReplayButton={activeReplayButton} />
             </div>
           </ScoreProvider>
         </MessagesProvider>
