@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import Gallows from './components/gallows/Gallows';
 import Goal from './components/goal/Goal';
@@ -12,7 +13,11 @@ import ScoreProvider from './context/scoreContext';
 import WordProvider from './context/wordContext';
 
 function App() {
+  const [isActiveReplayButton, setIsActiveReplayButton] = useState(false);
 
+  const activeReplayButton = newValue => {
+    setIsActiveReplayButton(newValue);
+  }
 
   return (
     <WordProvider>
@@ -28,8 +33,8 @@ function App() {
               </div>
               <Gallows />
               <div className='letters-replay'>
-                <ProposedLetters />
-                <ReplayButton />
+                <ProposedLetters activeReplayButton={activeReplayButton} />
+                <ReplayButton isActiveReplayButton={isActiveReplayButton} activeReplayButton={activeReplayButton} />
               </div>
             </div>
           </ScoreProvider>
