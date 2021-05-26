@@ -1,19 +1,7 @@
 .App {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-}
-
-.word-message {
-  grid-column: 1/2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.letters-replay {
-  grid-column: 1/3;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  row-gap: 30px;
+  margin: 20px 0px 20px 0px;
 }
