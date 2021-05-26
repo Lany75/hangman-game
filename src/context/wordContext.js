@@ -57,7 +57,7 @@ function WordProvider({ children }) {
 
   useEffect(() => {
     getRandomWord();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <WordContext.Provider value={{ word, getRandomWord, underscoredWord, setUnderscoredWord }}>
