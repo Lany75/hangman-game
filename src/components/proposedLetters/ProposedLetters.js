@@ -14,12 +14,16 @@ import './ProposedLetters.css';
 import { MessagesContext } from '../../context/messagesContext';
 import { ScoreContext } from '../../context/scoreContext';
 
-const ProposedLetters = () => {
+const ProposedLetters = (props) => {
   const { word, underscoredWord, setUnderscoredWord } = useContext(WordContext);
   const { errorCounter, setErrorCounter, setImage } = useContext(GallowsContext);
   const { setIsWon, setIsLost } = useContext(MessagesContext);
   const { nbFoundWord, setNbFoundWord, nbLostWord, setNbLostWord } = useContext(ScoreContext);
   const ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+  const activeReplayButton = value => {
+    props.activeReplayButton(value);
+  }
 
   const disableAllLetterButton = () => {
     const letterButton = document.getElementsByClassName('letter-button');
@@ -33,15 +37,10 @@ const ProposedLetters = () => {
     letterButton.disabled = true;
   }
 
-  const showReplayButton = () => {
-    const replayButton = document.getElementById('replay-button');
-    replayButton.style.display = 'block';
-  }
-
   const endGame = (image) => {
     setImage(image);
     disableAllLetterButton();
-    showReplayButton();
+    activeReplayButton(true);
     if (image === potence6) {
       setIsLost(true);
       setNbLostWord(nbLostWord + 1);
