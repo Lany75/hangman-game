@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/hangman-game/static/css/main.bb72ca32.chunk.css",
-    "main.js": "/hangman-game/static/js/main.43fe7fc0.chunk.js",
-    "main.js.map": "/hangman-game/static/js/main.43fe7fc0.chunk.js.map",
-    "runtime-main.js": "/hangman-game/static/js/runtime-main.78085c22.js",
-    "runtime-main.js.map": "/hangman-game/static/js/runtime-main.78085c22.js.map",
+    "main.css": "/hangman-game/static/css/main.a654312c.chunk.css",
+    "main.js": "/hangman-game/static/js/main.d5180850.chunk.js",
+    "main.js.map": "/hangman-game/static/js/main.d5180850.chunk.js.map",
+    "runtime-main.js": "/hangman-game/static/js/runtime-main.7c1d9140.js",
+    "runtime-main.js.map": "/hangman-game/static/js/runtime-main.7c1d9140.js.map",
     "static/js/2.f71ec5f2.chunk.js": "/hangman-game/static/js/2.f71ec5f2.chunk.js",
     "static/js/2.f71ec5f2.chunk.js.map": "/hangman-game/static/js/2.f71ec5f2.chunk.js.map",
-    "static/js/3.87488458.chunk.js": "/hangman-game/static/js/3.87488458.chunk.js",
-    "static/js/3.87488458.chunk.js.map": "/hangman-game/static/js/3.87488458.chunk.js.map",
+    "static/js/3.857e1c4b.chunk.js": "/hangman-game/static/js/3.857e1c4b.chunk.js",
+    "static/js/3.857e1c4b.chunk.js.map": "/hangman-game/static/js/3.857e1c4b.chunk.js.map",
     "index.html": "/hangman-game/index.html",
-    "static/css/main.bb72ca32.chunk.css.map": "/hangman-game/static/css/main.bb72ca32.chunk.css.map",
+    "static/css/main.a654312c.chunk.css.map": "/hangman-game/static/css/main.a654312c.chunk.css.map",
     "static/js/2.f71ec5f2.chunk.js.LICENSE.txt": "/hangman-game/static/js/2.f71ec5f2.chunk.js.LICENSE.txt",
     "static/media/gagne.e02556e3.jpg": "/hangman-game/static/media/gagne.e02556e3.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.78085c22.js",
+    "static/js/runtime-main.7c1d9140.js",
     "static/js/2.f71ec5f2.chunk.js",
-    "static/css/main.bb72ca32.chunk.css",
-    "static/js/main.43fe7fc0.chunk.js"
+    "static/css/main.a654312c.chunk.css",
+    "static/js/main.d5180850.chunk.js"
   ]
 }
