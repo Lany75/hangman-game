@@ -1,7 +1,20 @@
 .score {
-  grid-column: 3/4;
-  grid-row: 1/2;
   justify-self: center;
   align-self: center;
-  font-size: 25px;
+}
+
+@media screen and (min-width: 481px) {
+  .score {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .score {
+    grid-column: 2/4;
+    grid-row: 5/6;
+    font-size: 15px;
+  }
 }

@@ -1,4 +1,15 @@
 .message {
-  font-size: 30px;
   text-align: center;
+}
+
+@media screen and (min-width: 481px) {
+  .message {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .message {
+    font-size: 15px;
+  }
 }
