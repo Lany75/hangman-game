@@ -10,7 +10,8 @@ import potence6 from '../../img/potence6.jpg';
 import gagne from '../../img/gagne.jpg';
 import { MessagesContext } from "../../context/messagesContext";
 import { ScoreContext } from "../../context/scoreContext";
-import { ReplayButtonContext } from '../../context/replayButtonContext';
+import { ReplayContext } from '../../context/replayContext';
+import { LettersContext } from "../../context/lettersContext";
 
 
 const Letter = (props) => {
@@ -19,15 +20,13 @@ const Letter = (props) => {
   const { errorCounter, setErrorCounter, setImage } = useContext(GallowsContext);
   const { setIsWon, setIsLost } = useContext(MessagesContext);
   const { nbFoundWord, setNbFoundWord, nbLostWord, setNbLostWord } = useContext(ScoreContext);
-  const { setIsActiveReplayButton } = useContext(ReplayButtonContext);
+  const { setIsActiveReplayButton } = useContext(ReplayContext);
+  const { areDisabledProposedLetters, setAreDisabledProposedLetters } = useContext(LettersContext);
 
-  const disableLetters = value => {
-    props.disableLetters(value);
-  }
 
   const endGame = (image) => {
     setImage(image);
-    disableLetters(true);
+    setAreDisabledProposedLetters(true);
     setIsActiveReplayButton(true);
     if (image === potence6) {
       setIsLost(true);
@@ -86,14 +85,14 @@ const Letter = (props) => {
   }
 
   useEffect(() => {
-    if (props.areDisabled) {
+    if (areDisabledProposedLetters) {
       setIsActive(true);
     }
-  }, [props.areDisabled])
+  }, [areDisabledProposedLetters])
 
 
   return (
-    props.areDisabled || !isActive ? (
+    areDisabledProposedLetters || !isActive ? (
       <button className='letter-button' id={props.letter} disabled>{props.letter}</button>
     ) : (
       <button className='letter-button' id={props.letter} onClick={() => handleClick(props.letter)}>{props.letter}</button>
