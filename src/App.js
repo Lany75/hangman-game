@@ -14,9 +14,14 @@ import WordProvider from './context/wordContext';
 
 function App() {
   const [isActiveReplayButton, setIsActiveReplayButton] = useState(false);
+  const [areDisabledProposedLetters, setAreDisabledProposedLetters] = useState(false);
 
   const activeReplayButton = newValue => {
     setIsActiveReplayButton(newValue);
+  }
+
+  const disableLetters = newValue => {
+    setAreDisabledProposedLetters(newValue);
   }
 
   return (
@@ -30,8 +35,8 @@ function App() {
               <SelectedWord />
               <Messages />
               <Gallows />
-              <ProposedLetters activeReplayButton={activeReplayButton} />
-              <ReplayButton isActiveReplayButton={isActiveReplayButton} activeReplayButton={activeReplayButton} />
+              <ProposedLetters activeReplayButton={activeReplayButton} disableLetters={disableLetters} areDisabled={areDisabledProposedLetters} />
+              <ReplayButton isActiveReplayButton={isActiveReplayButton} activeReplayButton={activeReplayButton} disableLetters={disableLetters} />
             </div>
           </ScoreProvider>
         </MessagesProvider>

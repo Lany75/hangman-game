@@ -14,19 +14,17 @@ const ReplayButton = (props) => {
     props.activeReplayButton(value);
   }
 
+  const disableLetters = value => {
+    props.disableLetters(value);
+  }
+
   const replay = () => {
     setImage(potence0);
     setErrorCounter(0);
     setIsLost(false);
     setIsWon(false);
-
-    const buttonLetter = document.getElementsByClassName('letter-button');
-    for (let i = 0; i < buttonLetter.length; i++) {
-      buttonLetter[i].disabled = false;
-    }
-
+    disableLetters(false);
     getRandomWord();
-
     activeReplayButton(false);
   }
 
