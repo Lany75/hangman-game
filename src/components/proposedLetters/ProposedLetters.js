@@ -4,10 +4,6 @@ import Letter from '../letter/Letter';
 const ProposedLetters = (props) => {
   const ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
-  const activeReplayButton = value => {
-    props.activeReplayButton(value);
-  }
-
   const disableLetters = newValue => {
     props.disableLetters(newValue);
   }
@@ -15,7 +11,7 @@ const ProposedLetters = (props) => {
   return (
     <div className='proposed-letters'>
       {ALPHABET.map((letter, index) => {
-        return <Letter letter={letter} key={index} areDisabled={props.areDisabled} disableLetters={disableLetters} activeReplayButton={activeReplayButton} />
+        return <Letter letter={letter} key={index} areDisabled={props.areDisabled} disableLetters={disableLetters} />
       })}
     </div>
   )

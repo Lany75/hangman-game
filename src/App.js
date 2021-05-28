@@ -11,14 +11,10 @@ import GallowsProvider from './context/gallowsContext';
 import MessagesProvider from './context/messagesContext';
 import ScoreProvider from './context/scoreContext';
 import WordProvider from './context/wordContext';
+import ReplayButtonProvider from './context/replayButtonContext';
 
 function App() {
-  const [isActiveReplayButton, setIsActiveReplayButton] = useState(false);
   const [areDisabledProposedLetters, setAreDisabledProposedLetters] = useState(false);
-
-  const activeReplayButton = newValue => {
-    setIsActiveReplayButton(newValue);
-  }
 
   const disableLetters = newValue => {
     setAreDisabledProposedLetters(newValue);
@@ -29,15 +25,17 @@ function App() {
       <GallowsProvider>
         <MessagesProvider>
           <ScoreProvider>
-            <div className="App">
-              <Goal />
-              <Score />
-              <SelectedWord />
-              <Messages />
-              <Gallows />
-              <ProposedLetters activeReplayButton={activeReplayButton} disableLetters={disableLetters} areDisabled={areDisabledProposedLetters} />
-              <ReplayButton isActiveReplayButton={isActiveReplayButton} activeReplayButton={activeReplayButton} disableLetters={disableLetters} />
-            </div>
+            <ReplayButtonProvider>
+              <div className="App">
+                <Goal />
+                <Score />
+                <SelectedWord />
+                <Messages />
+                <Gallows />
+                <ProposedLetters disableLetters={disableLetters} areDisabled={areDisabledProposedLetters} />
+                <ReplayButton disableLetters={disableLetters} />
+              </div>
+            </ReplayButtonProvider>
           </ScoreProvider>
         </MessagesProvider>
       </GallowsProvider>
