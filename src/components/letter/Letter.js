@@ -10,6 +10,8 @@ import potence6 from '../../img/potence6.jpg';
 import gagne from '../../img/gagne.jpg';
 import { MessagesContext } from "../../context/messagesContext";
 import { ScoreContext } from "../../context/scoreContext";
+import { ReplayButtonContext } from '../../context/replayButtonContext';
+
 
 const Letter = (props) => {
   const [isActive, setIsActive] = useState(true);
@@ -17,19 +19,16 @@ const Letter = (props) => {
   const { errorCounter, setErrorCounter, setImage } = useContext(GallowsContext);
   const { setIsWon, setIsLost } = useContext(MessagesContext);
   const { nbFoundWord, setNbFoundWord, nbLostWord, setNbLostWord } = useContext(ScoreContext);
+  const { setIsActiveReplayButton } = useContext(ReplayButtonContext);
 
   const disableLetters = value => {
     props.disableLetters(value);
   }
 
-  const activeReplayButton = value => {
-    props.activeReplayButton(value);
-  }
-
   const endGame = (image) => {
     setImage(image);
     disableLetters(true);
-    activeReplayButton(true);
+    setIsActiveReplayButton(true);
     if (image === potence6) {
       setIsLost(true);
       setNbLostWord(nbLostWord + 1);
