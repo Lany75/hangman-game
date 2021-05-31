@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './App.css';
 import Gallows from './components/gallows/Gallows';
 import Goal from './components/goal/Goal';
@@ -11,28 +10,28 @@ import GallowsProvider from './context/gallowsContext';
 import MessagesProvider from './context/messagesContext';
 import ScoreProvider from './context/scoreContext';
 import WordProvider from './context/wordContext';
+import ReplayProvider from './context/replayContext';
+import LettersProvider from './context/lettersContext';
 
 function App() {
-  const [isActiveReplayButton, setIsActiveReplayButton] = useState(false);
-
-  const activeReplayButton = newValue => {
-    setIsActiveReplayButton(newValue);
-  }
-
   return (
     <WordProvider>
       <GallowsProvider>
         <MessagesProvider>
           <ScoreProvider>
-            <div className="App">
-              <Goal />
-              <Score />
-              <SelectedWord />
-              <Messages />
-              <Gallows />
-              <ProposedLetters activeReplayButton={activeReplayButton} />
-              <ReplayButton isActiveReplayButton={isActiveReplayButton} activeReplayButton={activeReplayButton} />
-            </div>
+            <ReplayProvider>
+              <LettersProvider>
+                <div className="App">
+                  <Goal />
+                  <Score />
+                  <SelectedWord />
+                  <Messages />
+                  <Gallows />
+                  <ProposedLetters />
+                  <ReplayButton />
+                </div>
+              </LettersProvider>
+            </ReplayProvider>
           </ScoreProvider>
         </MessagesProvider>
       </GallowsProvider>
